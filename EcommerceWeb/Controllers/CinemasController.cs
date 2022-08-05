@@ -10,12 +10,12 @@ namespace EcommerceWeb.Controllers
         private readonly AppDbcontext _context;
         public CinemasController(AppDbcontext context)
         {
-            context = _context;
+            _context = context;            
         }
         public async Task<IActionResult> Index()
         {
             var allCinemas = await _context.Cinemas.ToListAsync();
-            return View();
+            return View(allCinemas);
         }
     }
 }

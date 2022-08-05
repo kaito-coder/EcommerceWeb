@@ -9,12 +9,12 @@ namespace EcommerceWeb.Controllers
         private readonly AppDbcontext _context;
         public ProducersController(AppDbcontext context)
         {
-            context = _context;
+            _context = context;
         }
         public async  Task<IActionResult> Index()
         {
             var allProducers = await _context.Producers.ToListAsync();
-            return View();
+            return View(allProducers);
         }
     }
 }
